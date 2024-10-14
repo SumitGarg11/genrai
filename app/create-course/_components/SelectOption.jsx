@@ -19,6 +19,12 @@ function SelectOption() {
 
         }))
     }
+    // const handleChange = (e) => {
+    //     setUserCourseInput({
+    //       ...userCourseInput,
+    //       [e.target.name]: e.target.value,
+    //     });
+    //   };
   return (
     <div className='px-10 md:px-20  lg:px-44  ' > 
         <div className='grid grid-cols-2  gap-10'>
@@ -70,10 +76,30 @@ function SelectOption() {
         <div>
             <label className='text-sm'>No of Chapters</label>
             
-            <Input type="number" className='h-14 text-lg' 
+            {/* <Input type="number" value={userCourseInput?.noOfChapter } className='h-14 text-lg' 
             defaultValue={userCourseInput?.npOfChapter}
-            onChange={(event)=>handleInputChange('noOfChapters',event.target.value)}
-            />
+            onValueChange={(value)=>handleInputChange('noOfChapters',event.target.value)}
+            /> */}
+    <Select  defaultValue={userCourseInput?.NoOfChapter}  onValueChange={(value)=> handleInputChange('NoOfChapter',value)  } >
+    <SelectTrigger className="">
+    <SelectValue placeholder="No Of Chapter" />
+    </SelectTrigger>
+    <SelectContent>
+    <SelectItem value="1">1</SelectItem>
+    <SelectItem value="2">2</SelectItem>
+    <SelectItem value="3">3</SelectItem>
+    <SelectItem value="4">4</SelectItem>
+    <SelectItem value="5">5</SelectItem>
+    <SelectItem value="6">6</SelectItem>
+    <SelectItem value="7">7</SelectItem>
+    <SelectItem value="8">8</SelectItem>
+    <SelectItem value="9">9</SelectItem>
+    <SelectItem value="10">10</SelectItem>
+   
+    </SelectContent>
+    
+</Select>
+
         </div>
 
         </div>
