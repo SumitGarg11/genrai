@@ -61,7 +61,7 @@ export default function Page() {
 
             {/* Logo for small and large screens */}
             <div className="flex justify-center lg:justify-start mb-6 lg:mb-12">
-              <a href="#">
+              <a href="/">
                 {/* Responsive logo */}
                 <img 
                   src={"./genrai.png"}

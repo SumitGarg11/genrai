@@ -21,7 +21,7 @@ function LoadingDialog({loading}) {
         <AlertDialogTitle></AlertDialogTitle>
         <AlertDialogDescription >
           <div className='flex flex-col items-center  font-extrabold ' >
-          <Image src={'/loader.gif'} width={100} height = {100} />
+          <Image src={'/loader.gif'}  alt={"loding time "} width={100} height = {100} />
             <h2 className='font-extrabold text-black ' >Hold tight!  <span className='text-primary' >Alera </span>is creating your course masterpiece.  </h2>
             <h2 className='font-extrabold text-black '>🧠 It’s worth the wait!</h2>
            

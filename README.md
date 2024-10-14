@@ -34,3 +34,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+<!-- Alera -->
+
+Generate A Course Tutorial on Following Detail With field as Course Name, about, Duration: Category: Programming , Topic: Python, Level:Basic, Duration:1 hours , NoOfChapters:5, in JSON format

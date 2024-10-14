@@ -102,24 +102,32 @@
 
 "use client";
 import { Button } from "@/components/ui/button";
+import uuid4 from "uuid4";
 import React, { useContext, useEffect, useState } from "react";
 import {
   HiClipboardDocumentCheck,
   HiLightBulb,
   HiMiniSquares2X2,
 } from "react-icons/hi2";
+
 import SelectCategory from "./_components/SelectCategory";
 import TopicDescription from "./_components/TopicDescription";
 import SelectOption from "./_components/SelectOption";
 import { UserInputContext } from "../_context/UserInputContext";
 import { GenerateCourseLayout_AI } from "@/configs/AiModel";
 import LoadingDialog from "./_components/LoadingDialog";
+import { CourseList } from "@/configs/schema";
+import { useUser } from "@clerk/nextjs";
+import { db } from "@/configs/db.js";
+import { useRouter } from "next/navigation";
+
 
 function CreateCourse() {
   const StepperOptions = [
     {
       id: 1,
       name: "Category",
+      
       icon: <HiMiniSquares2X2 />,
     },
     {
@@ -137,7 +145,8 @@ function CreateCourse() {
   const { userCourseInput, setUserCourseInput } = useContext(UserInputContext);
   const [activeIndex, setActiveIndex] = useState(0);
  const [loading,setLoading]=useState(false);
-
+const {user} = useUser();
+const router = useRouter();
   useEffect(() => {
     console.log(userCourseInput);
   }, [userCourseInput]);
@@ -172,7 +181,7 @@ function CreateCourse() {
   const GenerateCourseLayout = async() => {
     setLoading(true);
     const BASIC_PROMPT =
-      "Generate A Course Tutorial on Following Detail With field as Course Name, about, Duration:";
+      "Generate A Course Tutorial on Following Detail With field as Course Name,Description, Along with Chapter Name , about,  Duration";
     const USER_INPUT_PROMPT =
       "Category: " +
       userCourseInput?.category +
@@ -189,10 +198,37 @@ function CreateCourse() {
     const FINAL_PROMPT = BASIC_PROMPT + USER_INPUT_PROMPT;
     console.log(FINAL_PROMPT);
     const result = await GenerateCourseLayout_AI.sendMessage(FINAL_PROMPT);
-    console.log(result.response?.text());
+    console.log("sumitaibhai",result.response?.text());
     console.log(JSON.parse(result.response?.text()));
+    const responseText = await result.response?.text(); // Wait for the text to resolve
+    const courseLayout = JSON.parse(responseText); 
     setLoading(false);
+    // SaveCourseLayoutInDb(JSON.parse(result.response?.text()));
+    await SaveCourseLayoutInDb({ courseLayout });
+
   };
+
+  const SaveCourseLayoutInDb=async({courseLayout})=>{
+    var id = uuid4();
+
+    setLoading(true);
+   
+    const result = await db.insert(CourseList).values({
+      courseId:id,
+      name:userCourseInput?.topic,
+      level:userCourseInput?.level,
+      category:userCourseInput?.category,
+      courseOutput:courseLayout,
+      createdBy:user?.primaryEmailAddress?.emailAddress,
+      userName: user?.fullName,
+      userProfileImage:user?.imageUrl
+    })
+    
+    console.log("Finish"); 
+    setLoading(false);
+    router.replace('/create-course/'+id)
+    
+  }
  
 
   return (
