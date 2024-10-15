@@ -7,6 +7,7 @@ import React, { useEffect,useState } from 'react'
 import CourseBasicInfo from './_components/CourseBasicInfo';
 import Image from 'next/image';
 import CourseDetail from './_components/CourseDetail';
+import ChapterList from './_components/ChapterList';
 
 function CourseLayout({params}) {
   const {user} = useUser();
@@ -38,7 +39,7 @@ function CourseLayout({params}) {
       <CourseDetail course = {course} />
       
       {/* List of lesson  */}
-
+      <ChapterList course = {course} />
 
     </div>
   )
