@@ -1,6 +1,7 @@
 
 import CategoryList from "@/app/_shared/CategoryList";
 import { UserProfile } from "@clerk/nextjs";
+
 import { pgTable, serial, json, varchar } from "drizzle-orm/pg-core";
 
 export const CourseList=pgTable('courseList',{
@@ -14,5 +15,5 @@ export const CourseList=pgTable('courseList',{
     createdBy:varchar('createdBy').notNull(),
     userName:varchar('username'),
     userProfileImage:varchar('userProfileImage')
-
+      
 })

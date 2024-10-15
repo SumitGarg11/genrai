@@ -36,6 +36,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-<!-- Alera -->
+<!-- Zenaris  -->
 
 Generate A Course Tutorial on Following Detail With field as Course Name, about, Duration: Category: Programming , Topic: Python, Level:Basic, Duration:1 hours , NoOfChapters:5, in JSON format
+
+Explain the concept in Detail on Topic: <>, Chapter:<> in JSON Format with field as title,description in detail, Code Example(HTML Code format) if applicable"
+
+Explain the concept in Detail on Topic: Three.js, Chapter:Introduction to Three.js ,in JSON Format  with list of array with field as title,explanation on give chapter in detail, Code Example( Code 
+field  in <precode > format) if applicable

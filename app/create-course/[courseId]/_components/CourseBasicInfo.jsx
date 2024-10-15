@@ -3,13 +3,14 @@ import { Button } from '@/@/components/ui/button'
 import Image from 'next/image'
 import React , {useState} from 'react'
 import EditCourseBasicInfo from './EditCourseBasicInfo'
-import { ref, uploadBytes } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/configs/firebaseConfig'
 
 
 function CourseBasicInfo({course}) {
   const [selectedFile, setSelectedFile] = useState();
   console.log('sumit 99');
+
   const onFileSelected =async(event)=> {
     const file=event.target.files[0];
     
@@ -19,7 +20,12 @@ function CourseBasicInfo({course}) {
     const storageRef=ref(storage,'ai-course/'+fileName);
     await uploadBytes(storageRef,file).then((snapshot)=>{
       console.log("Upload File Complete ")
-    });
+     })
+    //  .then(resp=>{
+    //   getDownloadURL(storageRef).then(async(downloadUrl)=>{
+    //     console.log(downloadUrl);
+    //   })
+    // })
 
     
   }

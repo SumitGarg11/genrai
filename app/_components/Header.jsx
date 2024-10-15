@@ -15,7 +15,14 @@ function Header() {
   />
   
   
-  <Button className="mt-4 sm:mt-0">Get Started</Button> {/* Margin adjustment for mobile */}
+  {/* <Button className="mt-4 sm:mt-0">Get Started</Button> */}
+   {/* Margin adjustment for mobile */}
+   <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <a className="block w-full rounded-lg bg-primary px-12 py-3 text-sm font-medium text-white shadow  focus:outline-none focus:ring  sm:w-auto" href="/dashboard">
+          Get Started
+        </a> 
+    </div>
+
 </div>
 
   )
