@@ -61,8 +61,8 @@ function SideBar() {
       </ul>
 
       <div className='absolute bottom-10  w-[80%] '>
-      <Progress value={33} />
-      <h2 className='text-sm text-blue-600 font-extrabold  my-2' >{userCourseList?.length} 3 Out of 5 Course created  </h2>
+      <Progress value={(userCourseList?.length/5)*100}  />
+      <h2 className='text-sm text-blue-600 font-extrabold  my-2' >{userCourseList?.length}  Out of 5 Course created  </h2>
       <h2 className='text-xs   text-black font-semibold' >Upgrade your plan for unlimited course generate</h2>
       </div>
       

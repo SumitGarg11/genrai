@@ -8,9 +8,10 @@ import { storage } from '@/configs/firebaseConfig'
 import { CourseList } from '@/configs/schema'
 import { eq } from 'drizzle-orm'
 import { db } from '@/configs/db'
+import Link from 'next/link'
 
 
-function CourseBasicInfo({course}) {
+function CourseBasicInfo({course,refreshData, edit=true}) {
   
   const [selectedFile, setSelectedFile] = useState();
   useEffect(()=>{
@@ -47,7 +48,7 @@ function CourseBasicInfo({course}) {
     <div className='p-10 border rounded-xl shadow-sm mt-5 '>
         <div  className='grid grid-cols-1 md:grid-cols-2' >
             <div>
-                <h2 className='font-bold text-2xl ' >{course?.courseOutput?.course?.name} <EditCourseBasicInfo  course ={course}  />   </h2>
+                <h2 className='font-bold text-2xl ' >{course?.courseOutput?.course?.name}  {edit &&  <EditCourseBasicInfo  course ={course}  refreshData={()=>refreshData(true)}  /> }  </h2>
                 <p className='text-sm text-grid-400 mt-3' >{course?.courseOutput?.course?.description}</p>
                 <div className='flex flex-row items-center mt-5 justify-between space-x-4'>
 
@@ -55,14 +56,17 @@ function CourseBasicInfo({course}) {
                      <h3 className='mt-5  font-medium  ' > {course?.category} </h3>
                      <Image src={'/circle.gif'} className=' -mt-5'  alt = "rocket" width={50} height={50}/>
                 </div>
+               
                 {/* <Image src={'/circle.gif'} className='ml-80 -mt-14'  alt = "rocket" width={50} height={50}/> */}
-                 <Button className=" mt-5 w-full">Start</Button>
+                <Link href={'/course/'+course?.courseId+"/start"} > 
+                   <Button className=" mt-5 w-full">Start</Button>
+                 </Link>
             </div>
             <div className="">
               <label htmlFor='upload-image' >
                 <Image src={ selectedFile?selectedFile:'/thum.png'} alt ="boos "   width={300} height={300} className='w-full  h-[250px] object-cover ml-4 cursor-pointer '  />
                 </label>
-                <input type="file" id="upload-image" className='opacity-0' onChange={onFileSelected} />
+               {edit &&  <input type="file" id="upload-image" className='opacity-0' onChange={onFileSelected} />}
             </div>
         </div>
        

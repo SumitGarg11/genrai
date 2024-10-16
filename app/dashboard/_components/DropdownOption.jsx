@@ -29,27 +29,27 @@ function DropdownOption({children,handleOnDelete}) {
     }
   return (
     <div>
-    <DropdownMenu>
+    <DropdownMenu >
       <DropdownMenuTrigger  className='border-none' >{children}</DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent  >
     
         <DropdownMenuItem  onClick={()=>setOpenAlert(true)}>
             <div>
                 <h2 className="font-extrabold ">Delete</h2>
             </div>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
+        </DropdownMenuItem  >
+      </DropdownMenuContent  >
     </DropdownMenu>
     <AlertDialog  open ={openAlert}>
  
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Warning!</AlertDialogTitle>
+  <AlertDialogContent >
+    <AlertDialogHeader >
+      <AlertDialogTitle >Warning!</AlertDialogTitle>
       <AlertDialogDescription>
       This will permanently delete the course and all associated content. This action cannot be undone. Are you certain?
       </AlertDialogDescription>
     </AlertDialogHeader>
-    <AlertDialogFooter>
+    <AlertDialogFooter >
       <AlertDialogCancel  onClick={()=>setOpenAlert(false)} >Cancel</AlertDialogCancel>
       <AlertDialogAction  onClick={()=> {handleOnDelete();setOpenAlert(false)}} >Continue</AlertDialogAction>
     </AlertDialogFooter>

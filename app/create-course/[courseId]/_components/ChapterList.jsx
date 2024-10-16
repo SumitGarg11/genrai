@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { HiOutlineClock } from "react-icons/hi";
 
-function ChapterList({course}) {
+function ChapterList({course,refreshData }) {
   return (
     <div className='mt-3'>
         <div className='flex flex-row gap-3' >
@@ -14,6 +14,7 @@ function ChapterList({course}) {
             {course?.courseOutput?.course?.chapters.map((chapter,index)=>{
                 return(
                     <div className='border bg-blue-300/10 p-5 rounded-xl mb-3 flex items-center justify-between'>
+                      
                        <div key={index} className='flex gap-5 items-center '>
                           <h2 className='bg-primary  flex-none -mt-5 h-10 w-10 text-white rounded-full text-center p-2 ' >{index+1}</h2>
 
@@ -30,7 +31,7 @@ function ChapterList({course}) {
                             </div>
                        </div>
                        {/* image */}
-                       <HiOutlineClock className='text-4xl flex-none text-gray-300' />
+                       <HiOutlineClock className='text-4xl flex-none text-gray-300' refreshData={()=>refreshData(true)} />
                     </div>
                 )
             })}

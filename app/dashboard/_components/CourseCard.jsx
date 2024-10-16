@@ -1,18 +1,31 @@
 import Image from 'next/image'
 import React from 'react'
 import DropdownOption from './DropdownOption'
+import { db } from '@/configs/db'
+import { CourseList } from '@/configs/schema'
+import { eq } from 'drizzle-orm'
+import Link from 'next/link'
 
 
-function CourseCard({course}) {
+function CourseCard({course, refreshData}) {
+  const handleOnDelete= async()=>{
+    const resp=await db.delete(CourseList).where(eq(CourseList.id,course?.id)).returning({id:CourseList?.id})
+    if(resp){
+      refreshData();
+    }
+  }
   return ( 
+    
     <div className='shadow-lg  hover:scale-105 transition-all cursor-pointer rounded-lg' >
+       <Link href={'/course/'+course?.courseId} > 
         <Image src={course?.courseBanner} width={300} height={190} className='w-full  h-[200px] object-fit  rounded-lg ' />
+        </Link>
        <div className='p-2' >
             <div className='flex gap-1'>
                 <div className='mt-4 '>
                 <h2 className='font-extrabold text-lg' > {course?.courseOutput?.course?.name} </h2>
                 </div>
-                <DropdownOption  >
+                <DropdownOption refreshData={()=>refreshData(true)}   handleOnDelete={()=>handleOnDelete()} >
                      <Image src={'/trash.gif'} unoptimized  alt = "rocket" width={70} height={50}/>
                 </DropdownOption>
             </div>

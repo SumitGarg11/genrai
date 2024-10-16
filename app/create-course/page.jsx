@@ -123,7 +123,7 @@ import { useRouter } from "next/navigation";
 import CourseLayout from "./[courseId]/page";
 
 
-function CreateCourse() {
+function CreateCourse({refreshData}) {
   const StepperOptions = [
     {
       id: 1,
@@ -305,7 +305,7 @@ const router = useRouter();
         </div>
       </div>
     
-      <LoadingDialog loading={loading}  />
+      <LoadingDialog loading={loading} refreshData={()=>refreshData(true)}  />
     </div>
   );
 }
