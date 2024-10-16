@@ -1,10 +1,12 @@
 "use client"
+import { UserCourseListContext } from '@/app/_context/UserCourseListContext';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/nextjs'
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext } from 'react'
 
 function AddCourse() {
+  const {userCourseList,setUserCourseList} = useContext(UserCourseListContext);
     const {user} = useUser();
   return (
     <div className='flex items-center justify-between'>
@@ -15,7 +17,7 @@ function AddCourse() {
         <p className='text-sm text-gray-600' >Unlock immersive learning experiences with AI-powered personalization</p>
 
       </div>
-      <Link href={'/create-course'} > 
+      <Link href={userCourseList>=5? '/dashboard/upgrade':  '/create-course'} > 
       <Button>+ Create AI Course </Button>
       </Link>
     </div>

@@ -58,9 +58,9 @@ function CourseBasicInfo({course,refreshData, edit=true}) {
                 </div>
                
                 {/* <Image src={'/circle.gif'} className='ml-80 -mt-14'  alt = "rocket" width={50} height={50}/> */}
-                <Link href={'/course/'+course?.courseId+"/start"} > 
-                   <Button className=" mt-5 w-full">Start</Button>
-                 </Link>
+                {!edit && <Link href={'/course/'+course?.courseId+"/start"} > 
+                  <Button className=" mt-5 w-full">Start</Button>
+                </Link>}
             </div>
             <div className="">
               <label htmlFor='upload-image' >

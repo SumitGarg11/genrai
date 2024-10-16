@@ -274,9 +274,9 @@ const router = useRouter();
 
       <div className="px-10 md:px-20 lg:px-44 mt-10">
         {activeIndex == 0 ? (
-          <SelectCategory />
+          <SelectCategory  />
         ) : activeIndex == 1 ? (
-          <TopicDescription />
+          <TopicDescription  />
         ) : (
           <SelectOption />
         )}
@@ -305,7 +305,7 @@ const router = useRouter();
         </div>
       </div>
     
-      <LoadingDialog loading={loading} refreshData={()=>refreshData(true)}  />
+      <LoadingDialog loading={loading}  />
     </div>
   );
 }
