@@ -1,14 +1,23 @@
 "use client"
 import { Button } from '@/@/components/ui/button'
 import Image from 'next/image'
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import EditCourseBasicInfo from './EditCourseBasicInfo'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/configs/firebaseConfig'
+import { CourseList } from '@/configs/schema'
+import { eq } from 'drizzle-orm'
+import { db } from '@/configs/db'
 
 
 function CourseBasicInfo({course}) {
+  
   const [selectedFile, setSelectedFile] = useState();
+  useEffect(()=>{
+    if(course){
+      setSelectedFile(course?.courseBanner)
+    }
+  },[course])
   console.log('sumit 99');
 
   const onFileSelected =async(event)=> {
@@ -20,12 +29,17 @@ function CourseBasicInfo({course}) {
     const storageRef=ref(storage,'ai-course/'+fileName);
     await uploadBytes(storageRef,file).then((snapshot)=>{
       console.log("Upload File Complete ")
+     }).then(res=>{
+      getDownloadURL(storageRef).then(async(downloadUrl)=>{
+        console.log(downloadUrl);
+        
+        await db.update(CourseList).set({
+          courseBanner:downloadUrl
+        }).where(eq(CourseList.id,course?.id))
+      })
      })
-    //  .then(resp=>{
-    //   getDownloadURL(storageRef).then(async(downloadUrl)=>{
-    //     console.log(downloadUrl);
-    //   })
-    // })
+
+  
 
     
   }
@@ -35,18 +49,18 @@ function CourseBasicInfo({course}) {
             <div>
                 <h2 className='font-bold text-2xl ' >{course?.courseOutput?.course?.name} <EditCourseBasicInfo  course ={course}  />   </h2>
                 <p className='text-sm text-grid-400 mt-3' >{course?.courseOutput?.course?.description}</p>
-                <div className='flex flex-row mt-5'>
+                <div className='flex flex-row items-center mt-5 justify-between space-x-4'>
 
                      <Image src={'/rocket.gif'}  alt = "rocket" width={50} height={50}  />
-                     <h3 className='mt-5 font-medium  ' > {course?.category} </h3>
-                     <Image src={'/circle.gif'} className='ml-64 -mt-5'  alt = "rocket" width={50} height={50}/>
+                     <h3 className='mt-5  font-medium  ' > {course?.category} </h3>
+                     <Image src={'/circle.gif'} className=' -mt-5'  alt = "rocket" width={50} height={50}/>
                 </div>
-                
+                {/* <Image src={'/circle.gif'} className='ml-80 -mt-14'  alt = "rocket" width={50} height={50}/> */}
                  <Button className=" mt-5 w-full">Start</Button>
             </div>
             <div className="">
               <label htmlFor='upload-image' >
-                <Image src={ selectedFile?selectedFile:'/boss.gif'} alt ="boos "   width={300} height={300} className='w-full  h-[250px] object-cover  cursor-pointer '  />
+                <Image src={ selectedFile?selectedFile:'/thum.png'} alt ="boos "   width={300} height={300} className='w-full  h-[250px] object-cover ml-4 cursor-pointer '  />
                 </label>
                 <input type="file" id="upload-image" className='opacity-0' onChange={onFileSelected} />
             </div>

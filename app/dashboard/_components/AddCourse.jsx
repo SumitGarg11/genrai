@@ -12,7 +12,7 @@ function AddCourse() {
          <h2 className='text-3xl font-extralight ' > <strong>Hello,</strong>
              <span className='font-extrabold text-primary' >{user?.fullName}</span>
         </h2>
-        <p className='text-sm text-gray-600' >Create new Course with AI, Share with friends and Earn from it</p>
+        <p className='text-sm text-gray-600' >Unlock immersive learning experiences with AI-powered personalization</p>
 
       </div>
       <Link href={'/create-course'} > 

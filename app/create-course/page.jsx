@@ -120,6 +120,7 @@ import { CourseList } from "@/configs/schema";
 import { useUser } from "@clerk/nextjs";
 import { db } from "@/configs/db.js";
 import { useRouter } from "next/navigation";
+import CourseLayout from "./[courseId]/page";
 
 
 function CreateCourse() {
@@ -207,7 +208,7 @@ const router = useRouter();
     await SaveCourseLayoutInDb({ courseLayout });
 
   };
-
+  
   const SaveCourseLayoutInDb=async({courseLayout})=>{
     var id = uuid4();
 
@@ -221,8 +222,12 @@ const router = useRouter();
       courseOutput:courseLayout,
       createdBy:user?.primaryEmailAddress?.emailAddress,
       userName: user?.fullName,
-      userProfileImage:user?.imageUrl
+      userProfileImage:user?.imageUrl,
+      courseBanner:course?.courseBanner,
+     
     })
+    
+
     
     console.log("Finish"); 
     setLoading(false);

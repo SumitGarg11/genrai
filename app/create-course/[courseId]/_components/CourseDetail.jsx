@@ -25,7 +25,7 @@ function CourseDetail({course}) {
                 {/* image */}
                 <Image src={'/boss2.gif'} unoptimized  alt = "rocket" width={50} height={50}  />
                 <div className='mt-3'>
-                    <h2 className='text-xs font-bold text-blue-700'>Total Chapters</h2>
+                    <h2 className='text-xs font-bold text-blue-700'>Total Module</h2>
                     <h2 className='font-extrabold text-lg'>{course?.courseOutput?.course?.noOfChapters}</h2>
                      
                 </div>
