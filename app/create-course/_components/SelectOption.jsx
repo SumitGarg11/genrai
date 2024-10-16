@@ -29,7 +29,7 @@ function SelectOption() {
     <div className='px-10 md:px-20  lg:px-44  ' > 
         <div className='grid grid-cols-2  gap-10'>
         <div>
-            <label className='text-sm' >Difficulty Level</label>
+            <label className='text-sm font-extrabold '   >Difficulty Level</label>
         <Select  defaultValue={userCourseInput?.level} onValueChange={(value)=> handleInputChange('level',value)  } >
             <SelectTrigger className="">
             <SelectValue placeholder="Select" />
@@ -42,14 +42,14 @@ function SelectOption() {
         </Select>
         </div>
         <div>
-            <label className='text-sm' >Course Duration </label>
+            <label className='text-sm font-extrabold' >Course Duration </label>
 
         <Select  defaultValue={userCourseInput?.duration}  onValueChange={(value)=> handleInputChange('duration',value)  } >
             <SelectTrigger className="">
             <SelectValue placeholder="Select" />
             </SelectTrigger>
             <SelectContent>
-            <SelectItem value="1 Hours">1 Hours </SelectItem>
+            <SelectItem value="1 Hours">1 Hour </SelectItem>
             <SelectItem value="2 Hours">2 Hours </SelectItem>
             <SelectItem value="More Than 3 Hours ">More Than 3 Hours</SelectItem>
             </SelectContent>
@@ -58,7 +58,7 @@ function SelectOption() {
         </div>
 
         <div>
-            <label className='text-sm' >Add Video </label>
+            <label className='text-sm  font-extrabold' >Add Video </label>
 
         <Select  defaultValue={userCourseInput?.displayVideo}  onValueChange={(value)=> handleInputChange('displayVideo',value)  } >
             <SelectTrigger className="">
@@ -74,7 +74,7 @@ function SelectOption() {
         </div>
 
         <div>
-            <label className='text-sm'>No of Chapters</label>
+            <label className='text-sm  font-extrabold '>No of Chapters</label>
             
             {/* <Input type="number" value={userCourseInput?.noOfChapter } className='h-14 text-lg' 
             defaultValue={userCourseInput?.npOfChapter}
@@ -82,7 +82,7 @@ function SelectOption() {
             /> */}
     <Select  defaultValue={userCourseInput?.NoOfChapter}  onValueChange={(value)=> handleInputChange('NoOfChapter',value)  } >
     <SelectTrigger className="">
-    <SelectValue placeholder="No Of Chapter" />
+    <SelectValue placeholder="Select" />
     </SelectTrigger>
     <SelectContent>
     <SelectItem value="1">1</SelectItem>
@@ -95,6 +95,7 @@ function SelectOption() {
     <SelectItem value="8">8</SelectItem>
     <SelectItem value="9">9</SelectItem>
     <SelectItem value="10">10</SelectItem>
+  
    
     </SelectContent>
     

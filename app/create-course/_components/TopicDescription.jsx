@@ -17,13 +17,13 @@ function TopicDescription() {
     <div className='mx-20 lg:mx-44'>
         {/* Input Topic */}
         <div className='mt-5' >
-            <label> Write The Topic for which you want to generate the a course(e.g., Python Course, Yoga , Machine Learning, etc): </label>
-                <Input placeholder={'Topic'} defaultValue={userCourseInput?.topic}  onChange={(e)=>handleInputChange('topic',e.target.value)  } className="h-14 text-xl "  />
+            <label className='font-extrabold ' > Enter Your Desired Course Topic(e.g. Python Course, Yoga , Machine Learning etc)</label>
+                <Input placeholder={'Topic'}  defaultValue={userCourseInput?.topic}  onChange={(e)=>handleInputChange('topic',e.target.value)  } className="h-14 text-lg bg-blue-500/20 "  />
             
         </div>
         <div className='mt-5' >
-            <label> Tell us more about your course, what you want to include in the course (Optional)  </label>
-            <Textarea placeholder = "About your course" defaultValue={userCourseInput?.description}  onChange={(e)=>handleInputChange('description',e.target.value)  } className="h-24 text-xl" />
+            <label className='font-extrabold' > Tell us more about your course, what you want to include in the course (Optional)  </label>
+            <Textarea placeholder = "About your course" defaultValue={userCourseInput?.description}  onChange={(e)=>handleInputChange('description',e.target.value)  } className="h-24 text-lg bg-blue-500/20 " />
 
         </div>
         {/* Text Area Desc  */}

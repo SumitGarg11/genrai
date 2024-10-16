@@ -11,10 +11,10 @@ function AddCourse() {
   return (
     <div className='flex items-center justify-between'>
       <div>
-         <h2 className='text-3xl font-extralight ' > <strong>Hello,</strong>
+         <h2 className='text-4xl font-extrabold inline-block  bg-blue-600/30 rounded-lg p-4 mt-2  ' > <strong>HI,</strong>
              <span className='font-extrabold text-primary' >{user?.fullName}</span>
         </h2>
-        <p className='text-sm text-gray-600' >Unlock immersive learning experiences with AI-powered personalization</p>
+        <p className='text-md mt-3 text-black font-extrabold' >Unlock immersive learning experiences with AI-powered personalization</p>
 
       </div>
       <Link href={userCourseList>=5? '/dashboard/upgrade':  '/create-course'} > 

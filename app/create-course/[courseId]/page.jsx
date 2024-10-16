@@ -80,7 +80,9 @@ function CourseLayout({params}) {
        </div>
       {/* Basic Info */}
        
-       <CourseBasicInfo course = {course}/>
+      
+      <CourseBasicInfo  course={course}  edit={true} refreshData={()=>console.log() }   />
+    
        
      
       {/* course detail  */} 
@@ -88,7 +90,7 @@ function CourseLayout({params}) {
       
       {/* List of lesson  */}
       <ChapterList course = {course} />
-     <Button  onClick={GenerateChapterContent} className="mt-8 mb-4 font-extrabold " >Generate Course Content</Button>
+     <Button  onClick={GenerateChapterContent} className="mt-8 mb-8 font-extrabold " >Generate Course Content</Button>
     </div>
   )
 }

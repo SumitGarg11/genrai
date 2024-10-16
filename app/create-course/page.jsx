@@ -123,7 +123,7 @@ import { useRouter } from "next/navigation";
 import CourseLayout from "./[courseId]/page";
 
 
-function CreateCourse({refreshData}) {
+function CreateCourse({course, refreshData}) {
   const StepperOptions = [
     {
       id: 1,
@@ -238,9 +238,11 @@ const router = useRouter();
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mt-10">
-        <h2 className="text-4xl font-extrabold  text-primary ">Create Course</h2>
-
+      <div className="flex flex-col justify-center items-center mt-10    ">
+        {/* <h2 className="text-5xl font-extrabold  rounded-lg p-5  text-white bg-primary ">Create Course</h2> */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold rounded-lg p-5 text-white bg-primary">
+              Create Course
+         </h2>
         <div className="flex mt-10">
           {StepperOptions.map((item, index) => {
             return (
@@ -281,7 +283,7 @@ const router = useRouter();
           <SelectOption />
         )}
 
-        <div className="flex justify-between mt-10">
+        <div className="flex justify-between mt-10 mb-10">
           <Button
             disabled={activeIndex == 0}
             variant="outline"

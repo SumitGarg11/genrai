@@ -11,7 +11,7 @@ import { db } from '@/configs/db'
 import Link from 'next/link'
 
 
-function CourseBasicInfo({course,refreshData, edit=true}) {
+function CourseBasicInfo({course,refreshData, edit}) {
   
   const [selectedFile, setSelectedFile] = useState();
   useEffect(()=>{
@@ -58,7 +58,7 @@ function CourseBasicInfo({course,refreshData, edit=true}) {
                 </div>
                
                 {/* <Image src={'/circle.gif'} className='ml-80 -mt-14'  alt = "rocket" width={50} height={50}/> */}
-                {!edit && <Link href={'/course/'+course?.courseId+"/start"} > 
+                {!edit&&<Link href={'/course/'+course?.courseId+"/start"} > 
                   <Button className=" mt-5 w-full">Start</Button>
                 </Link>}
             </div>
