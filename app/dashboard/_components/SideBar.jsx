@@ -35,12 +35,7 @@ function SideBar() {
       path: "/dashboard/upgrade"
       
     },
-    {
-      id: 4,
-      name: "Logout",
-      icon: <FiLogOut />,
-      path: "/dashboard/logout"
-    }
+    
   ];
 
   const path = usePathname();

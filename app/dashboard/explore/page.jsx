@@ -19,7 +19,7 @@ function Explore() {
   }
   return (
     <div>
-       <div className='mt-5 bg-blue-600/20 rounded-lg  p-5'>
+       <div className='mt-5 bg-blue-600/30 rounded-lg  p-5'>
           <h2 className='font-extrabold text-3xl'>Explore AI-Powered Projects </h2>
           <p className=''>Check Out AI-Enhanced Projects from the Community</p>
        </div>
