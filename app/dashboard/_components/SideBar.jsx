@@ -49,12 +49,12 @@ function SideBar() {
     <div className='fixed h-full md:w-64 p-5 shadow-md'>
       <Image src={'/genrai.png'} width={200} height={150} alt="Logo" />
       <hr className='my-5' />
-      <ul>
+      <ul >
         {Menu.map((item, index) => (
            <Link href={item.path} >
-          <div key={item.id} className={`flex  items-center p-3 gap-2  cursor-pointer text-gray-600 hover:bg-gray-100  hover:text-black rounded-lg  ${item.path==path&&'bg-gray-100 text-black'} `}>
+          <div key={item.id} className={`flex  items-center p-3  gap-3  cursor-pointer text-gray-600 hover:bg-gray-100  hover:text-black rounded-lg  ${item.path==path&&'bg-gray-200 text-black'} `}>
             <div className='text-2xl'>{item.icon}</div>
-            <h2>{item.name}</h2>
+            <h2 className=''>{item.name}</h2>
           </div>
           </Link>
         ))}

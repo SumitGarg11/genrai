@@ -25,7 +25,7 @@ function Course({params}) {
     <div>
         <Header />
         <div className='px-10 p-10 md:px-20 lg:px-44' >
-           <CourseBasicInfo course={course} edit={true}  />
+           <CourseBasicInfo course={course} edit={false}  />
            <CourseDetail  course={course} />
            <ChapterList course={course}  />
         </div>

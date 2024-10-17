@@ -7,7 +7,7 @@ import { eq } from 'drizzle-orm'
 import Link from 'next/link'
 
 
-function CourseCard({course, refreshData}) {
+function CourseCard({course, refreshData,displayUser=true }) {
   const handleOnDelete= async()=>{
     const resp=await db.delete(CourseList).where(eq(CourseList.id,course?.id)).returning({id:CourseList?.id})
     if(resp){
@@ -26,7 +26,8 @@ function CourseCard({course, refreshData}) {
                 <h2 className='font-extrabold text-lg' > {course?.courseOutput?.course?.name} </h2>
                 </div>
                 <DropdownOption refreshData={()=>refreshData(true)}   handleOnDelete={()=>handleOnDelete()} >
-                     <Image src={'/trash.gif'} unoptimized  alt = "rocket" width={70} height={50}/>
+                     
+                     {displayUser ? (<Image src={'/trash.gif'} unoptimized alt="rocket" width={70} height={50} /> ) : null}
                 </DropdownOption>
             </div>
          
@@ -48,6 +49,7 @@ function CourseCard({course, refreshData}) {
             </div>
             <h2 className='mt-2 font-extrabold bg-blue-400/30 p-2 rounded-lg ' >{course?.level} Level</h2>
           </div>
+          
        </div>
     </div>
   )
