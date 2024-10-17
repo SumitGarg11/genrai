@@ -14,7 +14,7 @@ function Upgrade() {
 
 {PricingPlan.map((item, index) => {
   return (
-    <div className="divide-y divide-gray-200 max-w-screen-2xl rounded-2xl border border-gray-200 shadow-sm" key={index}>
+    <div className="divide-y divide-gray-200  rounded-2xl border border-gray-200 shadow-sm" key={index}>
       <div className="p-6 sm:px-8">
         <h2 className="text-lg font-medium text-gray-900">
           {item.durationName}

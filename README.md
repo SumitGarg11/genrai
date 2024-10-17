@@ -44,3 +44,13 @@ Explain the concept in Detail on Topic: <>, Chapter:<> in JSON Format with field
 
 Explain the concept in Detail on Topic: Three.js, Chapter:Introduction to Three.js ,in JSON Format  with list of array with field as title,explanation on give chapter in detail, Code Example( Code 
 field  in <precode > format) if applicable
+
+
+Google Cloud , YouTube developer v3 , Firebase , drizzle , Orm , clerk Next.js Tailwind css 
+
+Google cloud key AIzaSyBr0IrE9V1PiE1ppOm2jSuuS4P4Hf_20kQ
+npm i axios
+
+http://localhost:3000/create-course/e5117e79-f3ab-4a80-8f29-59be3bcf42b1
+
+
